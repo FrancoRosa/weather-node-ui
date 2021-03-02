@@ -1,10 +1,9 @@
+import LatestData from "./LatestData"
 
 const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        HelloWorld
-      </header>
+      <LatestData />
     </div>
   );
 }

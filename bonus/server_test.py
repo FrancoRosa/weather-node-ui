@@ -8,11 +8,11 @@ url = 'http://localhost:5001/weather-node-ui/us-central1/measurements'
 data = { 
         "temperature": 1,
         "humidity": 2,
-        "latitude": 3,
-        "longitude": 4,
+        "latitude": -12,
+        "longitude": -70,
         "PM1": 5,
         "PM2": 6,
-        "timestamp": 7
+        "timestamp": 1
 } 
 
 response = requests.post(url, json=data)

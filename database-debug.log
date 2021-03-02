@@ -1,9 +1,2 @@
-10:26:08.563 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
-10:26:08.796 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9000
-10:34:45.951 [Thread-1] INFO com.firebase.server.forge.App$ - Attempting graceful shutdown.
-10:34:45.959 [NamespaceSystem-akka.actor.default-dispatcher-18] INFO com.firebase.core.namespace.Terminator$Terminator - 2 actors left to terminate: weather-node-ui, weather-node-ui-default-rtdb
-10:34:45.968 [NamespaceSystem-akka.actor.default-dispatcher-24] INFO com.firebase.core.namespace.NamespaceActor - Stopping namespace actor for weather-node-ui-default-rtdb
-10:34:45.968 [NamespaceSystem-akka.actor.default-dispatcher-21] INFO com.firebase.core.namespace.NamespaceActor - Stopping namespace actor for weather-node-ui
-10:34:45.970 [NamespaceSystem-akka.actor.default-dispatcher-24] INFO com.firebase.core.namespace.NamespaceActor - Gauges removed for weather-node-ui-default-rtdb
-10:34:45.972 [NamespaceSystem-akka.actor.default-dispatcher-21] INFO com.firebase.core.namespace.NamespaceActor - Gauges removed for weather-node-ui
-10:34:45.976 [Thread-1] INFO com.firebase.server.forge.App$ - Graceful shutdown complete.
+11:18:41.031 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+11:18:41.259 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9000
