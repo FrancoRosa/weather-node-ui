@@ -4,13 +4,25 @@ import CurrentMap from "./CurrentMap"
 
 
 const LatestData = () => {
-  const [measurement, setMeasurement] = useState({})
+  const [measurement, setMeasurement] = useState({
+    latitude: -13.56,
+    longitude: -71.92,
+  })
   const savedData = rtdb.ref('measurements');
 
+  
+
   useEffect(() => {
-    savedData.on('value', snapshot => {
+    savedData.once('value', snapshot => {
+      console.log(snapshot.val())
       if (snapshot.exists()) {
-        console.log(snapshot.val())
+        setMeasurement(snapshot.val());
+      }
+    })
+
+    savedData.on('value', snapshot => {
+      console.log(snapshot.val())
+      if (snapshot.exists()) {
         setMeasurement(snapshot.val());
       }
     })
