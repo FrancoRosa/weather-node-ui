@@ -1,1 +1,137 @@
 [debug] [2021-03-19T13:40:24.866Z] ----------------------------------------------------------------------
+[debug] [2021-03-19T13:40:24.871Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\fx\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2021-03-19T13:40:24.871Z] CLI Version:   9.1.0
+[debug] [2021-03-19T13:40:24.872Z] Platform:      win32
+[debug] [2021-03-19T13:40:24.872Z] Node Version:  v14.15.3
+[debug] [2021-03-19T13:40:24.873Z] Time:          Fri Mar 19 2021 08:40:24 GMT-0500 (hora estándar de Perú)
+[debug] [2021-03-19T13:40:24.874Z] ----------------------------------------------------------------------
+[debug] [2021-03-19T13:40:24.874Z] 
+[debug] [2021-03-19T13:40:24.888Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-03-19T13:40:24.890Z] > authorizing via signed-in user
+[debug] [2021-03-19T13:40:24.890Z] [iam] checking project weather-node-ui for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2021-03-19T13:40:24.895Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/weather-node-ui:testIamPermissions  
+ {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2021-03-19T13:40:25.853Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 19 Mar 2021 13:40:26 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=148","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-19T13:40:25.856Z] >>> HTTP REQUEST POST https://iam.googleapis.com/v1/projects/weather-node-ui/serviceAccounts/weather-node-ui@appspot.gserviceaccount.com:testIamPermissions  
+ {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2021-03-19T13:40:27.257Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 19 Mar 2021 13:40:28 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'weather-node-ui'...
+[info] 
+[info] i  deploying functions 
+[info] +  functions: Finished running predeploy script. 
+[debug] [2021-03-19T13:40:32.001Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "12"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^9.2.0",
+    "firebase-functions": "^3.11.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.6.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[debug] [2021-03-19T13:40:33.866Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/weather-node-ui/services/cloudfunctions.googleapis.com  
+ 
+[debug] [2021-03-19T13:40:33.867Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/weather-node-ui/services/runtimeconfig.googleapis.com  
+ 
+[debug] [2021-03-19T13:40:33.868Z] >>> HTTP REQUEST GET https://serviceusage.googleapis.com/v1/projects/weather-node-ui/services/cloudbuild.googleapis.com  
+ 
+[debug] [2021-03-19T13:40:34.715Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 19 Mar 2021 13:40:35 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-19T13:40:42.730Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 19 Mar 2021 13:40:35 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] +  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2021-03-19T13:40:49.920Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 19 Mar 2021 13:40:35 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] +  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2021-03-19T13:40:49.925Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/weather-node-ui/adminSdkConfig  
+ 
+[debug] [2021-03-19T13:40:50.807Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 19 Mar 2021 13:40:51 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  functions: preparing functions directory for uploading... 
+[debug] [2021-03-19T13:40:50.814Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/weather-node-ui/configs  
+ 
+[debug] [2021-03-19T13:40:53.223Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 19 Mar 2021 13:40:53 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  functions: packaged functions (32.93 KB) for uploading 
+[debug] [2021-03-19T13:40:53.561Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/weather-node-ui/locations/-/functions  
+ 
+[debug] [2021-03-19T13:40:54.664Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 19 Mar 2021 13:40:55 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-19T13:40:54.676Z] >>> HTTP REQUEST POST https://cloudfunctions.googleapis.com/v1/projects/weather-node-ui/locations/us-central1/functions:generateUploadUrl  
+ 
+[debug] [2021-03-19T13:40:55.754Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 19 Mar 2021 13:40:56 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-19T13:40:55.756Z] >>> HTTP REQUEST PUT https://storage.googleapis.com/gcf-upload-us-central1-c63ebf3d-29b3-4c15-8734-5849040c9500/917efd84-ea14-469c-af62-94db1b63b9f5.zip?GoogleAccessId=service-165262525078@gcf-admin-robot.iam.gserviceaccount.com&Expires=1616163056&Signature=o4tIEiQub4zdrDYLETKd2o9S9MkfA6X%2FX%2BKnzi%2BrL1wF2n%2BUoGMwGEYQnlzbUoOrCqX0mP7NEKs%2BNVNa14RLTICgmolWYuS09YJq%2B8xj1OA1PwPWFXaJ7wYnkgeflptDc2YovE518UQdmFg9IJyVusD44eze5M485kECXeWLZ0r1FNsD0jQ127MVwUh0dwxol6vGOy0hDHA9Il9xkbOHOsvhjLoJcUyEazblx%2BTEmbpoWUpLzp%2FvMmAYWkKIIm9u8kpdRpvtckLTnl%2BjQ2dW0NbXKF9qRzVNnKs%2FPmbdOYxTHFYY3i2uziRarpxsweRvKPjgr%2BFDw%2FbWeeYk4wm8hQ%3D%3D  
+ <request body omitted>
+[debug] [2021-03-19T13:40:57.723Z] <<< HTTP RESPONSE 200 {"x-guploader-uploadid":"ABg5-UyyXIw8dsvke3Su9QkQzIRXGO4Z5CepfERKUOZ0q-6JHwpPNTzbTQrrnKxqAwZH51MLyw1fzxERCgn94_-OiA_hpkbV2Q","etag":"\"53fcf50d189d5f76a79c8a39d3a08730\"","x-goog-generation":"1616161257830850","x-goog-metageneration":"1","x-goog-hash":"crc32c=5dj5Fw==, md5=U/z1DRidX3annIo506CHMA==","x-goog-stored-content-length":"33725","x-goog-stored-content-encoding":"identity","vary":"Origin","content-length":"0","date":"Fri, 19 Mar 2021 13:40:57 GMT","server":"UploadServer","content-type":"text/html; charset=UTF-8","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\""}
+[info] +  functions: functions folder uploaded successfully 
+[info] i  functions: updating Node.js 12 function measurements(us-central1)... 
+[debug] [2021-03-19T13:40:57.736Z] Trigger is:  {"httpsTrigger":{}}
+[debug] [2021-03-19T13:40:57.744Z] >>> HTTP REQUEST PATCH https://cloudfunctions.googleapis.com/v1/projects/weather-node-ui/locations/us-central1/functions/measurements {"updateMask":"sourceUploadUrl,name,labels,runtime,environmentVariables,httpsTrigger"} 
+ {"sourceUploadUrl":"https://storage.googleapis.com/gcf-upload-us-central1-c63ebf3d-29b3-4c15-8734-5849040c9500/917efd84-ea14-469c-af62-94db1b63b9f5.zip?GoogleAccessId=service-165262525078@gcf-admin-robot.iam.gserviceaccount.com&Expires=1616163056&Signature=o4tIEiQub4zdrDYLETKd2o9S9MkfA6X%2FX%2BKnzi%2BrL1wF2n%2BUoGMwGEYQnlzbUoOrCqX0mP7NEKs%2BNVNa14RLTICgmolWYuS09YJq%2B8xj1OA1PwPWFXaJ7wYnkgeflptDc2YovE518UQdmFg9IJyVusD44eze5M485kECXeWLZ0r1FNsD0jQ127MVwUh0dwxol6vGOy0hDHA9Il9xkbOHOsvhjLoJcUyEazblx%2BTEmbpoWUpLzp%2FvMmAYWkKIIm9u8kpdRpvtckLTnl%2BjQ2dW0NbXKF9qRzVNnKs%2FPmbdOYxTHFYY3i2uziRarpxsweRvKPjgr%2BFDw%2FbWeeYk4wm8hQ%3D%3D","name":"projects/weather-node-ui/locations/us-central1/functions/measurements","labels":{"deployment-tool":"cli-firebase"},"httpsTrigger":{},"runtime":"nodejs12","environmentVariables":{"FIREBASE_CONFIG":"{\"projectId\":\"weather-node-ui\",\"databaseURL\":\"https://weather-node-ui-default-rtdb.firebaseio.com\",\"storageBucket\":\"weather-node-ui.appspot.com\",\"locationId\":\"us-central\"}"}}
+[debug] [2021-03-19T13:40:59.122Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 19 Mar 2021 13:41:00 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-19T13:40:59.125Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/weather-node-ui/locations/-/functions  
+ 
+[debug] [2021-03-19T13:40:59.967Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 19 Mar 2021 13:41:00 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-19T13:40:59.970Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/d2VhdGhlci1ub2RlLXVpL3VzLWNlbnRyYWwxL21lYXN1cmVtZW50cy9ZTnExOHdIejVHRQ  
+ 
+[debug] [2021-03-19T13:41:00.588Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 19 Mar 2021 13:41:01 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-19T13:41:02.596Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/d2VhdGhlci1ub2RlLXVpL3VzLWNlbnRyYWwxL21lYXN1cmVtZW50cy9ZTnExOHdIejVHRQ  
+ 
+[debug] [2021-03-19T13:41:03.552Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 19 Mar 2021 13:41:04 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-19T13:41:05.561Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/d2VhdGhlci1ub2RlLXVpL3VzLWNlbnRyYWwxL21lYXN1cmVtZW50cy9ZTnExOHdIejVHRQ  
+ 
+[debug] [2021-03-19T13:41:06.894Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 19 Mar 2021 13:41:07 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-19T13:41:08.897Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/d2VhdGhlci1ub2RlLXVpL3VzLWNlbnRyYWwxL21lYXN1cmVtZW50cy9ZTnExOHdIejVHRQ  
+ 
+[debug] [2021-03-19T13:41:09.424Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 19 Mar 2021 13:41:10 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-19T13:41:11.427Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/d2VhdGhlci1ub2RlLXVpL3VzLWNlbnRyYWwxL21lYXN1cmVtZW50cy9ZTnExOHdIejVHRQ  
+ 
+[debug] [2021-03-19T13:41:12.147Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 19 Mar 2021 13:41:13 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-19T13:41:14.151Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/d2VhdGhlci1ub2RlLXVpL3VzLWNlbnRyYWwxL21lYXN1cmVtZW50cy9ZTnExOHdIejVHRQ  
+ 
+[debug] [2021-03-19T13:41:29.017Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 19 Mar 2021 13:41:15 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-19T13:41:31.025Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/d2VhdGhlci1ub2RlLXVpL3VzLWNlbnRyYWwxL21lYXN1cmVtZW50cy9ZTnExOHdIejVHRQ  
+ 
+[debug] [2021-03-19T13:41:37.750Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 19 Mar 2021 13:41:37 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-19T13:41:39.755Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/d2VhdGhlci1ub2RlLXVpL3VzLWNlbnRyYWwxL21lYXN1cmVtZW50cy9ZTnExOHdIejVHRQ  
+ 
+[debug] [2021-03-19T13:41:43.541Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 19 Mar 2021 13:41:44 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-19T13:41:45.555Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/d2VhdGhlci1ub2RlLXVpL3VzLWNlbnRyYWwxL21lYXN1cmVtZW50cy9ZTnExOHdIejVHRQ  
+ 
+[debug] [2021-03-19T13:41:47.318Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 19 Mar 2021 13:41:48 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-19T13:41:49.324Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/d2VhdGhlci1ub2RlLXVpL3VzLWNlbnRyYWwxL21lYXN1cmVtZW50cy9ZTnExOHdIejVHRQ  
+ 
+[debug] [2021-03-19T13:41:54.957Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 19 Mar 2021 13:41:50 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-19T13:41:56.963Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/d2VhdGhlci1ub2RlLXVpL3VzLWNlbnRyYWwxL21lYXN1cmVtZW50cy9ZTnExOHdIejVHRQ  
+ 
+[debug] [2021-03-19T13:41:57.540Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 19 Mar 2021 13:41:58 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-19T13:41:59.544Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/d2VhdGhlci1ub2RlLXVpL3VzLWNlbnRyYWwxL21lYXN1cmVtZW50cy9ZTnExOHdIejVHRQ  
+ 
+[debug] [2021-03-19T13:42:00.398Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 19 Mar 2021 13:42:01 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-19T13:42:02.407Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/d2VhdGhlci1ub2RlLXVpL3VzLWNlbnRyYWwxL21lYXN1cmVtZW50cy9ZTnExOHdIejVHRQ  
+ 
+[debug] [2021-03-19T13:42:03.259Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 19 Mar 2021 13:42:04 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-19T13:42:05.264Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/d2VhdGhlci1ub2RlLXVpL3VzLWNlbnRyYWwxL21lYXN1cmVtZW50cy9ZTnExOHdIejVHRQ  
+ 
+[debug] [2021-03-19T13:42:06.227Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 19 Mar 2021 13:42:06 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-19T13:42:08.236Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/d2VhdGhlci1ub2RlLXVpL3VzLWNlbnRyYWwxL21lYXN1cmVtZW50cy9ZTnExOHdIejVHRQ  
+ 
+[debug] [2021-03-19T13:42:10.760Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 19 Mar 2021 13:42:11 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] +  functions[measurements(us-central1)]: Successful update operation.  
+[info] 
+[info] +  Deploy complete! 
+[info] 
+[info] Project Console: https://console.firebase.google.com/project/weather-node-ui/overview
