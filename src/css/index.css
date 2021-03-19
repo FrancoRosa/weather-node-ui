@@ -1,3 +1,7 @@
-.container {
-  height: 100%;
+.map__container {
+  height: 50vh;
+}
+
+.level-item > div{
+  cursor: pointer;
 }

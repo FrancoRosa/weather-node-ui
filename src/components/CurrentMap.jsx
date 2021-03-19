@@ -2,16 +2,19 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 const CurrentMap = ({latitude, longitude, google, selectedPlace}) => {
   return (
-    <Map 
-      google={google} 
-      zoom={4} 
-      initialCenter={{lat: latitude.toString(), lng: longitude.toString()}}
-    >
-      <Marker 
-        name={'target'} 
-        position={{lat: latitude.toString(), lng: longitude.toString()}}
-      />
-    </Map>
+    <div className="map__container">
+      <Map 
+        google={google} 
+        zoom={4} 
+        initialCenter={{lat: latitude.toString(), lng: longitude.toString()}}
+      >
+        <Marker 
+          name={'target'} 
+          position={{lat: latitude.toString(), lng: longitude.toString()}}
+        />
+      </Map>
+    </div>
+
   )
 }
 

@@ -2,7 +2,7 @@ import LatestData from "./LatestData"
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="container">
       <LatestData />
     </div>
   );
