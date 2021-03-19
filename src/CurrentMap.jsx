@@ -5,11 +5,11 @@ const CurrentMap = ({latitude, longitude, google, selectedPlace}) => {
     <Map 
       google={google} 
       zoom={4} 
-      initialCenter={{lat: latitude, lng: longitude}}
+      initialCenter={{lat: latitude.toString(), lng: longitude.toString()}}
     >
       <Marker 
         name={'target'} 
-        position={{lat: latitude, lng: longitude}}
+        position={{lat: latitude.toString(), lng: longitude.toString()}}
       />
     </Map>
   )

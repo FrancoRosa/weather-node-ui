@@ -3,7 +3,7 @@
 import requests
 url = 'http://sensor-network-lora.herokuapp.com/api/sensors'
 url = 'http://localhost:5001/weather-node-ui/us-central1/measurements'
-
+url = 'https://us-central1-weather-node-ui.cloudfunctions.net/measurements'
 # Update sensors
 data = { 
         "temperature": 1,
