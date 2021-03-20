@@ -1,3 +1,4 @@
+import Plot from 'react-plotly.js';
 import { rtdb, db } from '../firebase';
 import { useEffect, useState } from 'react';
 import CurrentMap from "./CurrentMap"
@@ -42,17 +43,33 @@ const LatestData = () => {
     )
   }
 
-  const Modal = ({ variable }) => {
+  const Modal = ({ variable, title }) => {
     return (
       <div className={`modal ${variable ? 'is-active' : ''}`}>
         <div className="modal-background"></div>
         <div className="modal-content">
-          {variable}
+          {/* <History data={measurement[variable]} title={variable} /> */}
         </div>
         <button className="modal-close is-large" aria-label="close" onClick={() => setModal('')}></button>
       </div>
     )
   }
+
+  // const History = ({data, title}) => {
+  //   return (
+  //     <div>
+  //     <Plot
+  //         data={[
+  //           {
+  //             y: data,
+  //             mode: 'lines+markers',
+  //           },
+  //         ]}
+  //         layout={ {width: 580, height: 400, title: title} }
+  //     />
+  //   </div>
+  //   )
+  // }
 
   useEffect(()=>{
     setTimeStamp(stampToLocal(measurement.timestamp));
