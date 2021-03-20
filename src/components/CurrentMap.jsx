@@ -1,6 +1,6 @@
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
-const CurrentMap = ({latitude, longitude, google, selectedPlace}) => {
+const CurrentMap = ({latitude, longitude, google, selectedPlace, timeStamp}) => {
   return (
     <div className="map__container">
       <Map 
@@ -11,7 +11,8 @@ const CurrentMap = ({latitude, longitude, google, selectedPlace}) => {
         <Marker 
           name={'target'} 
           position={{lat: latitude.toString(), lng: longitude.toString()}}
-        />
+        >
+        </Marker>
       </Map>
     </div>
 

@@ -15,13 +15,13 @@ const LatestData = () => {
   const savedData = rtdb.ref('measurements');
   const [timeStamp, setTimeStamp] = useState('');
   const [modal, setModal] = useState('');
-
   const stampToLocal = timestamp => {
     let time = new Date(timestamp);
     let result = time.toLocaleString()
     return result
   }
 
+  
   useEffect(() => {
     savedData.on('value', snapshot => {
       console.log('.. on');
@@ -48,28 +48,28 @@ const LatestData = () => {
       <div className={`modal ${variable ? 'is-active' : ''}`}>
         <div className="modal-background"></div>
         <div className="modal-content">
-          {/* <History data={measurement[variable]} title={variable} /> */}
+          <History data={measurement[variable]} title={variable} />
         </div>
         <button className="modal-close is-large" aria-label="close" onClick={() => setModal('')}></button>
       </div>
     )
   }
 
-  // const History = ({data, title}) => {
-  //   return (
-  //     <div>
-  //     <Plot
-  //         data={[
-  //           {
-  //             y: data,
-  //             mode: 'lines+markers',
-  //           },
-  //         ]}
-  //         layout={ {width: 580, height: 400, title: title} }
-  //     />
-  //   </div>
-  //   )
-  // }
+  const History = ({data, title}) => {
+    return (
+      <div>
+      <Plot
+          data={[
+            {
+              y: data,
+              mode: 'lines+markers',
+            },
+          ]}
+          layout={ {width: 580, height: 400, title: title} }
+      />
+    </div>
+    )
+  }
 
   useEffect(()=>{
     setTimeStamp(stampToLocal(measurement.timestamp));
@@ -77,15 +77,17 @@ const LatestData = () => {
 
   return (
     <div>
-      <hr/>
-      <h1 className="title has-text-centered">Condiciones Ambientales</h1>
       <nav class="level">
         <Label heading='Temperatura' variable='temperature' symbol='°C' />
         <Label heading='Humedad' variable='humidity' symbol='%' />
         <Label heading='PM1' variable='PM1' symbol='ppm' />
         <Label heading='PM2' variable='PM2' symbol='ppm' />
       </nav>
-      <CurrentMap latitude={measurement.latitude} longitude={measurement.longitude} />
+      <CurrentMap 
+        latitude={measurement.latitude}
+        longitude={measurement.longitude}
+        timeStamp={timeStamp}
+      />
       <Modal variable={modal}/>
     </div>
   )

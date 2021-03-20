@@ -1,7 +1,20 @@
 .map__container {
-  height: 50vh;
+  height: 40vh;
+  display: block;
 }
 
 .level-item > div{
   cursor: pointer;
+}
+
+hr {
+  margin: 0;
+}
+
+.container {
+  margin-top: 1em;
+}
+
+.level {
+  margin-top: 1em;
 }
