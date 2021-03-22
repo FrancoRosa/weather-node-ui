@@ -3,6 +3,21 @@ import { rtdb, db } from '../firebase';
 import { useEffect, useState } from 'react';
 import CurrentMap from "./CurrentMap"
 
+const keyToLabel = key => {
+  switch (key) {
+    case 'temperature':
+      return 'Temperatura'
+    case 'humidity':
+      return 'Humedad'
+    case 'PM1':
+      return 'PM1'
+    case 'PM2':
+      return 'PM2'
+    default:
+      break;
+  }
+}
+
 const LatestData = () => {
   const [measurement, setMeasurement] = useState({
     latitude: -13.56,
@@ -11,23 +26,36 @@ const LatestData = () => {
     PM2: 0,
     humidity: 0,
     temperature: 0,
+    timestamp: new Date().toISOString()
   })
 
-  const [allMeasurements, setAllMeasurements] = useState({})
+  const [allMeasurements, setAllMeasurements] = useState({
+    latitude: [],
+    longitude: [],
+    PM1: [],
+    PM2: [],
+    humidity: [],
+    temperature: [],
+    timestamp: [],
+  })
   const latestMeasurement = rtdb.ref('measurements');
   const historicMeasurements = db.collection('measurements').doc('records')
   const [timeStamp, setTimeStamp] = useState('');
   const [modal, setModal] = useState('');
   const stampToLocal = timestamp => {
     let time = new Date(timestamp);
-    let result = time.toLocaleString()
+    let result = time.toLocaleString('sv-SE')
     return result
   }
   let currentTime = new Date();
   
   const getCurrentTime = () => {
     currentTime = new Date();
-    document.querySelector(".clock").textContent=currentTime.toLocaleString()
+    try {
+      document.querySelector(".clock").textContent=currentTime.toLocaleString('sv-SE');
+    } catch {
+      console.error('...current time error')
+    }
   }
 
   useEffect(() => {
@@ -42,10 +70,18 @@ const LatestData = () => {
     getHistoricData()
   },[])
 
-
   const getHistoricData = async () => {
     historicMeasurements.get()
-      .then(doc => console.log(doc.data))
+      .then(doc => {
+        console.log(doc.data())
+        let records = doc.data()
+        records = { ...records, timestamp: records.timestamp.map(t => {
+          let tDate = new Date(t)
+          return tDate.toLocaleString('sv-SE');
+        })}
+        console.log(records);
+        setAllMeasurements(records);
+      });
   }
 
   const Label = ({heading, variable, symbol}) => {
@@ -59,25 +95,27 @@ const LatestData = () => {
     )
   }
 
-  const Modal = ({ variable, title }) => {
+  const Modal = ({ variable }) => {
+    const title = keyToLabel(variable);
     return (
       <div className={`modal ${variable ? 'is-active' : ''}`}>
         <div className="modal-background"></div>
         <div className="modal-content">
-          <History data={measurement[variable]} title={variable} />
+          <History dataX={allMeasurements.timestamp} dataY={allMeasurements[variable]} title={title}/>
         </div>
         <button className="modal-close is-large" aria-label="close" onClick={() => setModal('')}></button>
       </div>
     )
   }
 
-  const History = ({data, title}) => {
+  const History = ({dataX, dataY, title}) => {
     return (
       <div>
       <Plot
           data={[
             {
-              y: data,
+              x: dataX,
+              y: dataY,
               mode: 'lines+markers',
             },
           ]}

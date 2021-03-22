@@ -14,8 +14,8 @@ while True:
         "humidity": 80+round(10*random(),2),
         "latitude": -13+round(random(),4),
         "longitude": -72+round(random(),4),
-        "PM1": round(50*random()),
-        "PM2": 100,
+        "PM1": 10 + round(5*random()),
+        "PM2": 100 + round(25*random()),
         "timestamp": 1
     } 
     response = requests.post(url, json=data)
