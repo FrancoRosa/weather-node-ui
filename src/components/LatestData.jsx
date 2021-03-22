@@ -15,7 +15,7 @@ const LatestData = () => {
 
   const [allMeasurements, setAllMeasurements] = useState({})
   const latestMeasurement = rtdb.ref('measurements');
-  const historicMeasurements = db.collection('measurements')
+  const historicMeasurements = db.collection('measurements').doc('records')
   const [timeStamp, setTimeStamp] = useState('');
   const [modal, setModal] = useState('');
   const stampToLocal = timestamp => {
@@ -24,7 +24,6 @@ const LatestData = () => {
     return result
   }
   let currentTime = new Date();
-
   
   const getCurrentTime = () => {
     currentTime = new Date();
@@ -40,10 +39,14 @@ const LatestData = () => {
         setMeasurement(snapshot.val());
       }
     })
-
-    console.log('>>>>>>> Make this work')
-    historicMeasurements.get().then(doc => console.log(doc))
+    getHistoricData()
   },[])
+
+
+  const getHistoricData = async () => {
+    historicMeasurements.get()
+      .then(doc => console.log(doc.data))
+  }
 
   const Label = ({heading, variable, symbol}) => {
     return (
