@@ -5,7 +5,7 @@ const CurrentMap = ({latitude, longitude, google, selectedPlace, timeStamp}) => 
     <div className="map__container">
       <Map 
         google={google} 
-        zoom={4} 
+        zoom={10} 
         initialCenter={{lat: latitude.toString(), lng: longitude.toString()}}
       >
         <Marker 

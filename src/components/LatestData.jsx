@@ -60,14 +60,7 @@ const LatestData = () => {
 
   useEffect(() => {
     setInterval(getCurrentTime, 1000);
-
-    latestMeasurement.on('value', snapshot => {
-      console.log(snapshot.val())
-      if (snapshot.exists()) {
-        setMeasurement(snapshot.val());
-      }
-    })
-    getHistoricData()
+    getHistoricData();
   },[])
 
   const getHistoricData = async () => {
@@ -79,8 +72,26 @@ const LatestData = () => {
           let tDate = new Date(t)
           return tDate.toLocaleString('sv-SE');
         })}
-        console.log(records);
-        setAllMeasurements(records);
+        
+
+        latestMeasurement.on('value', snapshot => {
+          let newData = snapshot.val() 
+          newData.timestamp= new Date(snapshot.val().timestamp).toLocaleString('sv-SE')
+          console.log(newData)
+          if (snapshot.exists()) {
+            setMeasurement(newData);
+            let AllData = {...allMeasurements};
+            AllData.temperature.push(newData.temperature);
+            AllData.humidity.push(newData.humidity);
+            AllData.PM1.push(newData.PM1);
+            AllData.PM2.push(newData.PM2);
+            AllData.latitude.push(newData.latitude);
+            AllData.longitude.push(newData.longitude);
+            AllData.timestamp.push(newData.timestamp);
+            setAllMeasurements(AllData);
+          }
+        })
+
       });
   }
 
