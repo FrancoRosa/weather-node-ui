@@ -12,7 +12,10 @@ const LatestData = () => {
     humidity: 0,
     temperature: 0,
   })
-  const savedData = rtdb.ref('measurements');
+
+  const [allMeasurements, setAllMeasurements] = useState({})
+  const latestMeasurement = rtdb.ref('measurements');
+  const historicMeasurements = db.collection('measurements')
   const [timeStamp, setTimeStamp] = useState('');
   const [modal, setModal] = useState('');
   const stampToLocal = timestamp => {
@@ -20,16 +23,26 @@ const LatestData = () => {
     let result = time.toLocaleString()
     return result
   }
+  let currentTime = new Date();
 
   
+  const getCurrentTime = () => {
+    currentTime = new Date();
+    document.querySelector(".clock").textContent=currentTime.toLocaleString()
+  }
+
   useEffect(() => {
-    savedData.on('value', snapshot => {
-      console.log('.. on');
+    setInterval(getCurrentTime, 1000);
+
+    latestMeasurement.on('value', snapshot => {
       console.log(snapshot.val())
       if (snapshot.exists()) {
         setMeasurement(snapshot.val());
       }
     })
+
+    console.log('>>>>>>> Make this work')
+    historicMeasurements.get().then(doc => console.log(doc))
   },[])
 
   const Label = ({heading, variable, symbol}) => {
@@ -77,6 +90,10 @@ const LatestData = () => {
 
   return (
     <div>
+      <div className="is-flex clocks">
+        <p className="heading">Última medición: {timeStamp}</p>
+        <p className="clock heading"></p>
+      </div>
       <nav class="level">
         <Label heading='Temperatura' variable='temperature' symbol='°C' />
         <Label heading='Humedad' variable='humidity' symbol='%' />

@@ -18,3 +18,8 @@ hr {
 .level {
   margin-top: 1em;
 }
+
+.clocks {
+  justify-content: space-between;
+  margin: 0 1em;
+}
