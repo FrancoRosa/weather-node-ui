@@ -66,7 +66,6 @@ const LatestData = () => {
   const getHistoricData = async () => {
     historicMeasurements.get()
       .then(doc => {
-        console.log(doc.data())
         let records = doc.data()
         records = { ...records, timestamp: records.timestamp.map(t => {
           let tDate = new Date(t)
@@ -80,7 +79,7 @@ const LatestData = () => {
           console.log(newData)
           if (snapshot.exists()) {
             setMeasurement(newData);
-            let AllData = {...allMeasurements};
+            let AllData = {...records};
             AllData.temperature.push(newData.temperature);
             AllData.humidity.push(newData.humidity);
             AllData.PM1.push(newData.PM1);
