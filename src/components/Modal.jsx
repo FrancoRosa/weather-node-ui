@@ -19,7 +19,7 @@ const Modal = ({ variable, allMeasurements, setModal }) => {
   const title = keyToLabel(variable);
   return (
     <div className={`modal ${variable ? 'is-active' : ''}`}>
-      <div className="modal-background"></div>
+      <div className="modal-background" onClick={() => setModal('')}></div>
       <div className="modal-content">
         <History dataX={allMeasurements.timestamp} dataY={allMeasurements[variable]} title={title}/>
       </div>
