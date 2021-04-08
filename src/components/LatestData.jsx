@@ -1,22 +1,9 @@
-import Plot from 'react-plotly.js';
 import { rtdb, db } from '../firebase';
 import { useEffect, useState } from 'react';
 import CurrentMap from "./CurrentMap"
+import Modal from './Modal';
+import Label from './Label';
 
-const keyToLabel = key => {
-  switch (key) {
-    case 'temperature':
-      return 'Temperatura'
-    case 'humidity':
-      return 'Humedad'
-    case 'PM1':
-      return 'PM1'
-    case 'PM2':
-      return 'PM2'
-    default:
-      break;
-  }
-}
 
 const LatestData = () => {
   const [measurement, setMeasurement] = useState({
@@ -94,47 +81,6 @@ const LatestData = () => {
       });
   }
 
-  const Label = ({heading, variable, symbol}) => {
-    return (
-      <div class="level-item has-text-centered">
-        <div onClick={() => setModal(variable) }>
-          <p class="heading">{heading}</p>
-          <p class="title">{measurement[variable] +' '+ symbol}</p>
-        </div>
-      </div>
-    )
-  }
-
-  const Modal = ({ variable }) => {
-    const title = keyToLabel(variable);
-    return (
-      <div className={`modal ${variable ? 'is-active' : ''}`}>
-        <div className="modal-background"></div>
-        <div className="modal-content">
-          <History dataX={allMeasurements.timestamp} dataY={allMeasurements[variable]} title={title}/>
-        </div>
-        <button className="modal-close is-large" aria-label="close" onClick={() => setModal('')}></button>
-      </div>
-    )
-  }
-
-  const History = ({dataX, dataY, title}) => {
-    return (
-      <div>
-      <Plot
-          data={[
-            {
-              x: dataX,
-              y: dataY,
-              mode: 'lines+markers',
-            },
-          ]}
-          layout={ {width: 580, height: 400, title: title} }
-      />
-    </div>
-    )
-  }
-
   useEffect(()=>{
     setTimeStamp(stampToLocal(measurement.timestamp));
   },[measurement])
@@ -146,17 +92,17 @@ const LatestData = () => {
         <p className="clock heading"></p>
       </div>
       <nav class="level">
-        <Label heading='Temperatura' variable='temperature' symbol='°C' />
-        <Label heading='Humedad' variable='humidity' symbol='%' />
-        <Label heading='PM1' variable='PM1' symbol='ppm' />
-        <Label heading='PM2' variable='PM2' symbol='ppm' />
+        <Label setModal={setModal} measurement={measurement} heading='Temperatura' variable='temperature' symbol='°C' />
+        <Label setModal={setModal} measurement={measurement} heading='Humedad' variable='humidity' symbol='%' />
+        <Label setModal={setModal} measurement={measurement} heading='PM1' variable='PM1' symbol='ppm' />
+        <Label setModal={setModal} measurement={measurement} heading='PM2' variable='PM2' symbol='ppm' />
       </nav>
       <CurrentMap 
         latitude={measurement.latitude}
         longitude={measurement.longitude}
         timeStamp={timeStamp}
       />
-      <Modal variable={modal}/>
+      <Modal variable={modal} allMeasurements={allMeasurements} setModal={setModal}/>
     </div>
   )
 }
