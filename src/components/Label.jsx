@@ -1,12 +1,12 @@
-const Label = ({heading, variable, symbol, setModal, measurement}) => {
+const Label = ({ heading, variable, symbol, setModal, measurement }) => {
   return (
-    <div class="level-item has-text-centered">
-      <div onClick={() => setModal(variable) }>
-        <p class="heading">{heading}</p>
-        <p class="title">{measurement[variable] +' '+ symbol}</p>
+    <div className="level-item has-text-centered">
+      <div onClick={() => setModal(variable)}>
+        <p className="heading">{heading}</p>
+        <p className="title">{measurement[variable] + " " + symbol}</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Label
+export default Label;
