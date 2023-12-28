@@ -1,0 +1,14 @@
+[debug] [2023-12-28T14:54:24.621Z] ----------------------------------------------------------------------
+[debug] [2023-12-28T14:54:24.623Z] Command:       /usr/bin/node /usr/bin/firebase functions:log
+[debug] [2023-12-28T14:54:24.623Z] CLI Version:   13.0.2
+[debug] [2023-12-28T14:54:24.624Z] Platform:      linux
+[debug] [2023-12-28T14:54:24.624Z] Node Version:  v18.18.2
+[debug] [2023-12-28T14:54:24.624Z] Time:          Thu Dec 28 2023 09:54:24 GMT-0500 (Colombia Standard Time)
+[debug] [2023-12-28T14:54:24.624Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-12-28T14:54:24.682Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-12-28T14:54:24.682Z] > authorizing via signed-in user (km115.franco@gmail.com)
+[debug] [2023-12-28T14:54:24.682Z] [iam] checking project weather-node-ui for permissions ["firebase.projects.get","logging.logEntries.list","logging.logs.list"]
+[debug] [2023-12-28T14:54:24.684Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/weather-node-ui:testIamPermissions [none]
+[debug] [2023-12-28T14:54:24.684Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/weather-node-ui:testIamPermissions x-goog-quota-user=projects/weather-node-ui
+[debug] [2023-12-28T14:54:24.684Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/weather-node-ui:testIamPermissions {"permissions":["firebase.projects.get","logging.logEntries.list","logging.logs.list"]}

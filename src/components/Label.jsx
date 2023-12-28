@@ -13,6 +13,12 @@ const pmLevels = {
   },
 };
 
+const levelMessage = {
+  low: { text: "bajo", class: "has-text-success" },
+  mid: { text: "medio", class: "has-text-warning" },
+  high: { text: "alto", class: "has-text-danger" },
+};
+
 const Label = ({ heading, variable, symbol, setModal, measurement }) => {
   const [hover, setHover] = useState(false);
   const getLevel = (pm, type) => {
@@ -35,12 +41,6 @@ const Label = ({ heading, variable, symbol, setModal, measurement }) => {
     }
   };
   const level = getLevel(measurement[variable]);
-
-  const levelMessage = {
-    low: { text: "bajo", class: "has-text-success" },
-    mid: { text: "medio", class: "has-text-warning" },
-    high: { text: "alto", class: "has-text-danger" },
-  };
 
   return (
     <div className="level-item has-text-centered">
@@ -101,9 +101,7 @@ const Label = ({ heading, variable, symbol, setModal, measurement }) => {
               >
                 <p style={{}}>Nivel de Contaminacion:</p>
                 <div className="level">
-                  <p style={{ fontWeight: "bolder", fontSize: "0.75em" }}>
-                    PM1
-                  </p>
+                  <p style={{ fontWeight: "bolder", fontSize: "1em" }}>PM1</p>
                   <p>
                     0 - {pmLevels.PM1.low}{" "}
                     <span
@@ -130,9 +128,7 @@ const Label = ({ heading, variable, symbol, setModal, measurement }) => {
                   </p>
                 </div>
                 <div className="level">
-                  <p style={{ fontWeight: "bolder", fontSize: "0.75em" }}>
-                    PM2
-                  </p>
+                  <p style={{ fontWeight: "bolder", fontSize: "1em" }}>PM2</p>
                   <p>
                     0 - {pmLevels.PM2.low}{" "}
                     <span
